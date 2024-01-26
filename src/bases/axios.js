@@ -20,3 +20,5 @@ giphyApi
     document.body.append(img);
   })
   .catch(console.log);
+
+export default giphyApi;
