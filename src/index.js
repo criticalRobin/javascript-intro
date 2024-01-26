@@ -1,24 +1,18 @@
 console.log("Hola mundo");
 
-import axios from "axios";
+const myPromise = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Tenemos un valor en la promesa");
+    }, 1000);
+  });
+};
 
-const apiKey = "J6L6VRCdeOQ9CZaDEywmuuq4wIALEzH2";
-// `https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`
+const setTimeAsync = async () => {
+  console.log("Inicio");
+  const ans = await myPromise();
+  console.log(ans);
+  console.log("Fin");
+};
 
-const giphyApi = axios.create({
-  baseURL: "https://api.giphy.com/v1/gifs",
-  params: {
-    api_key: apiKey,
-  },
-});
-
-// giphyApi
-//   .get("/random")
-//   .then((ans) => {
-//     const { data } = ans.data;
-//     const { url } = data.images.original;
-//     const img = document.createElement("img");
-//     img.src = url;
-//     document.body.append(img);
-//   })
-//   .catch(console.log);
+setTimeAsync().catch("Error en medir el tiempo");
